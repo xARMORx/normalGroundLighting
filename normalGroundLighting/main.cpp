@@ -17,16 +17,15 @@ void __cdecl CHud__DrawRadar() {
 			CShadows__StoreStaticShadowHook->install();
 		}
 		else
-			MessageBoxA(**reinterpret_cast<HWND**>(0xC17054), "Ошибка!\nПлагин не смог найти текстуру newLight в particle.txd!\nПлагин не сможет работать без данной текстуры", "normalGroundLight", MB_OK | MB_ICONERROR);
+			MessageBoxA(**reinterpret_cast<HWND**>(0xC17054), "РћС€РёР±РєР°!\nРџР»Р°РіРёРЅ РЅРµ СЃРјРѕРі РЅР°Р№С‚Рё С‚РµРєСЃС‚СѓСЂСѓ newLight РІ particle.txd!\nРџР»Р°РіРёРЅ РЅРµ СЃРјРѕР¶РµС‚ СЂР°Р±РѕС‚Р°С‚СЊ Р±РµР· РґР°РЅРЅРѕР№ С‚РµРєСЃС‚СѓСЂС‹", "normalGroundLight", MB_OK | MB_ICONERROR);
 		init = true;
 	}
-	
 
 	CHud_DrawRadarHook->call();
 }
 
 AsiPlugin::AsiPlugin() {
-	CHud_DrawRadarHook = std::make_unique<memwrapper::memhook<CHud__DrawRadarPrototype>>(0x561B10, &CHud__DrawRadar);
+	CHud_DrawRadarHook = std::make_unique<memwrapper::memhook<CHud__DrawRadarPrototype>>(0x58A330, &CHud__DrawRadar);
 	CHud_DrawRadarHook->install();
 }
 
